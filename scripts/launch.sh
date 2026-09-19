@@ -1,32 +1,13 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
-# https://github.com/htr-tech/zphisher
+clear
 
-if [[ $(uname -o) == *'Android'* ]];then
-	ZPHISHER_ROOT="/data/data/com.termux/files/usr/opt/zphisher"
-else
-	export ZPHISHER_ROOT="/opt/zphisher"
-fi
+printf '\033[1;35m╔══════════════════════════════════════════════════════╗\033[0m\n'
+figlet -f slant "KRISHAN-TX"
+printf '\033[1;36m        ⚡ SECURITY LEARNING TOOLKIT ⚡\033[0m\n'
+printf '\033[1;33m          Created by KRISHAN SINGH SIDHU\033[0m\n'
+printf '\033[1;35m╚══════════════════════════════════════════════════════╝\033[0m\n'
+echo
 
-if [[ $1 == '-h' || $1 == 'help' ]]; then
-	echo "To run Zphisher type \`zphisher\` in your cmd"
-	echo
-	echo "Help:"
-	echo " -h | help : Print this menu & Exit"
-	echo " -c | auth : View Saved Credentials"
-	echo " -i | ip   : View Saved Victim IP"
-	echo
-elif [[ $1 == '-c' || $1 == 'auth' ]]; then
-	cat $ZPHISHER_ROOT/auth/usernames.dat 2> /dev/null || { 
-		echo "No Credentials Found !"
-		exit 1
-	}
-elif [[ $1 == '-i' || $1 == 'ip' ]]; then
-	cat $ZPHISHER_ROOT/auth/ip.txt 2> /dev/null || {
-		echo "No Saved IP Found !"
-		exit 1
-	}
-else
-	cd $ZPHISHER_ROOT
-	bash ./zphisher.sh
-fi
+cd "$(dirname "$0")/.."
+exec bash ./krishan.sh
